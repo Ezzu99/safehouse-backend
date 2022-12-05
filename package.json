@@ -1,0 +1,45 @@
+{
+  "name": "safehouse-backend",
+  "version": "1.0.0",
+  "description": "SafeHouse - A victim resolution solution for NGOs.",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "prisma-migrate": "npx prisma migrate dev",
+    "prisma-reset": "npx prisma migrate reset --force",
+    "prisma-format": "npx prisma format",
+    "dev": "nodemon --verbose --watch src --watch .env --watch server.js -e .js --ignore src/tests --ignore src/prisma ./server.js",
+    "load-test": "artillery run -o ./artillery_reports/artillery-report.json ./artillery.yml"
+  },
+  "prisma": {
+    "schema": "./src/prisma/schema.prisma",
+    "seed": "node ./src/prisma/seed.js"
+  },
+  "keywords": [],
+  "author": "AzanAli-19k1368",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/autoload": "^4.0.1",
+    "@fastify/cors": "^8.2.0",
+    "@fastify/jwt": "^5.0.1",
+    "@fastify/sensible": "^4.1.0",
+    "@prisma/client": "^3.13.0",
+    "bcrypt": "^5.0.1",
+    "fastify": "^3.0.0",
+    "fastify-cors": "^6.1.0",
+    "fastify-plugin": "^3.0.0",
+    "luxon": "^2.4.0",
+    "nanoid": "^3.3.4",
+    "nodemailer": "^6.7.5",
+    "pino-pretty": "^7.6.1"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.0",
+    "jest": "^28.1.0",
+    "nodemon": "^2.0.16",
+    "prisma": "^3.13.0"
+  }
+}
