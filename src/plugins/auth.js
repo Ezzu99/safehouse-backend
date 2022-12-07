@@ -29,7 +29,7 @@ const authPlugin = fp(async (fastify, opts, next) => {
                 );
                 console.log(err, user);
 
-                if (err) {
+                if (err || !user) {
                     return false;
                 }
 
